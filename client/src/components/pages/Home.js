@@ -1,6 +1,8 @@
 import React from "react";
-import Contacts from "../contacts/Contacts";
 import styled from "styled-components";
+
+import Contacts from "../contacts/Contacts";
+import ContactForm from "../contacts/ContactForm";
 
 const Home = () => {
   const Div = styled.div`
@@ -17,7 +19,9 @@ const Home = () => {
 
   return (
     <Div>
-      <div className='contact-form'> Contact Form will be here</div>
+      <div className='contact-form'>
+        <ContactForm />
+      </div>
       <div className='contacts'>
         <Contacts />
       </div>

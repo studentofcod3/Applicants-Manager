@@ -36,12 +36,18 @@ const ContactState = props => {
         phone: "+44333333333",
         type: "personal"
       }
-    ]
+    ],
+    current: null
   };
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   // Add Contact
+  const addContact = contact => {
+    contact.id = uuid.v4();
+
+    dispatch({ type: ADD_CONTACT, payload: contact });
+  };
 
   // Set Current Contact
   // Clear Current Contact

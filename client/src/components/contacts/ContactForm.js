@@ -1,0 +1,130 @@
+import React, { useState, useContext, useEffect } from "react";
+import ContactContext from "../../context/contact/contactContext";
+import styled from "styled-components";
+
+const ContactForm = () => {
+  const contactContext = useContext(ContactContext);
+  const { addContact, clearCurrent, updateContact, current } = contactContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setContact(current);
+    } else {
+      setContact({
+        name: "",
+        email: "",
+        phone: "",
+        type: "personal"
+      });
+    }
+  }, [contactContext, current]);
+
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    type: "personal"
+  });
+
+  const { name, email, phone, type } = contact;
+
+  const onChange = e => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (current === null) {
+      addContact(contact);
+    } else {
+      updateContact(contact);
+    }
+    clearAll();
+  };
+
+  const clearAll = () => {
+    clearCurrent();
+  };
+
+  const Form = styled.form`
+    h2 {
+    }
+    input {
+    }
+
+    h5 {
+    }
+
+    .button-container {
+      .btn {
+      }
+
+      .submit-btn {
+      }
+
+      .clear-btn {
+      }
+    }
+  `;
+  return (
+    <Form onSubmit={onSubmit}>
+      <h2>{current ? "Edit Contact" : "Add Contact"}</h2>
+      <input
+        type='text'
+        placeholder='name'
+        name='Name'
+        value={name}
+        onChange={onChange}
+      />
+      <input
+        type='text'
+        placeholder='Email'
+        name='email'
+        value={email}
+        onChange={onChange}
+      />
+      <input
+        type='text'
+        placeholder='Phone'
+        name='phone'
+        value={phone}
+        onChange={onChange}
+      />
+      <h5>Contact Type</h5>
+      <input
+        type='radio'
+        name='type'
+        value='personal'
+        checked={type === "personal"}
+        onChange={onChange}
+      />
+      Personal
+      <input
+        type='radio'
+        name='type'
+        value='professional'
+        checked={type === "professional"}
+        onChange={onChange}
+      />
+      Professional
+      <div className='btn-container'>
+        <input
+          type='submit'
+          value={current ? "Update Contact" : "Add Contact"}
+          className='btn submit-btn'
+          onChange={onChange}
+        />
+      </div>
+      {current && (
+        <div className='btn-container'>
+          <button className='btn clear-btn' onClick={clearAll}>
+            Clear
+          </button>
+        </div>
+      )}
+    </Form>
+  );
+};
+
+export default ContactForm;
