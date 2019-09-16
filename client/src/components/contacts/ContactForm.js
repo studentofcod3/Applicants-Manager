@@ -2,6 +2,53 @@ import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import styled from "styled-components";
 
+const Form = styled.form`
+  h2 {
+  }
+  input {
+    width: 100%;
+    height: 1.2rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+
+  h5 {
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+
+    .type-container {
+      input {
+        margin: 0;
+      }
+
+      span {
+      }
+    }
+  }
+
+  .btn-container {
+    .btn {
+      padding: 1rem 0;
+      line-height: 0;
+
+      :hover {
+        cursor: pointer;
+        background: yellow;
+      }
+    }
+
+    .submit-btn {
+    }
+
+    .clear-btn {
+    }
+  }
+`;
+
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
   const { addContact, clearCurrent, updateContact, current } = contactContext;
@@ -47,28 +94,8 @@ const ContactForm = () => {
     clearCurrent();
   };
 
-  const Form = styled.form`
-    h2 {
-    }
-    input {
-    }
-
-    h5 {
-    }
-
-    .button-container {
-      .btn {
-      }
-
-      .submit-btn {
-      }
-
-      .clear-btn {
-      }
-    }
-  `;
   return (
-    <form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <h2>{current ? "Edit Contact" : "Add Contact"}</h2>
       <input
         type='text'
@@ -92,22 +119,28 @@ const ContactForm = () => {
         onChange={onChange}
       />
       <h5>Contact Type</h5>
-      <input
-        type='radio'
-        name='type'
-        value='personal'
-        checked={type === "personal"}
-        onChange={onChange}
-      />
-      Personal
-      <input
-        type='radio'
-        name='type'
-        value='professional'
-        checked={type === "professional"}
-        onChange={onChange}
-      />
-      Professional
+      <div className='container'>
+        <div className='type-container'>
+          <input
+            type='radio'
+            name='type'
+            value='personal'
+            checked={type === "personal"}
+            onChange={onChange}
+          />
+          <span>Personal</span>
+        </div>
+        <div className='type-container'>
+          <input
+            type='radio'
+            name='type'
+            value='professional'
+            checked={type === "professional"}
+            onChange={onChange}
+          />
+          <span>Professional</span>
+        </div>
+      </div>
       <div className='btn-container'>
         <input
           type='submit'
@@ -123,7 +156,7 @@ const ContactForm = () => {
           </button>
         </div>
       )}
-    </form>
+    </Form>
   );
 };
 
