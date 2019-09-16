@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Contacts from "../contacts/Contacts";
 import ContactForm from "../contacts/ContactForm";
+import ContactFilter from "../contacts/ContactFilter";
 
 const Home = () => {
   const Div = styled.div`
@@ -23,6 +24,7 @@ const Home = () => {
         <ContactForm />
       </div>
       <div className='contacts'>
+        <ContactFilter />
         <Contacts />
       </div>
     </Div>
