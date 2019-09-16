@@ -68,12 +68,12 @@ const ContactForm = () => {
     }
   `;
   return (
-    <Form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       <h2>{current ? "Edit Contact" : "Add Contact"}</h2>
       <input
         type='text'
-        placeholder='name'
-        name='Name'
+        placeholder='Name'
+        name='name'
         value={name}
         onChange={onChange}
       />
@@ -123,7 +123,7 @@ const ContactForm = () => {
           </button>
         </div>
       )}
-    </Form>
+    </form>
   );
 };
 
