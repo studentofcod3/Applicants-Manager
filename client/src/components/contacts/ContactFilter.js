@@ -2,7 +2,11 @@ import React, { useContext, useRef, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import styled from "styled-components";
 
-const Form = styled.form``;
+const Form = styled.form`
+  input {
+    padding: 0.5rem 1rem;
+  }
+`;
 
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext);
