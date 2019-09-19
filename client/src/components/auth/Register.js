@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
 
 import styled from "styled-components";
 
@@ -32,8 +33,17 @@ const Div = styled.div`
 
 const Register = () => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+  const { register, error, clearErrors } = authContext;
+
+  useEffect(() => {
+    if (error === "User already exists") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+  }, [error]);
 
   const [user, setUser] = useState({
     name: "",
@@ -54,7 +64,11 @@ const Register = () => {
     } else if (password !== password2) {
       setAlert("Passwords must match", "danger");
     } else {
-      console.log("Register Submit");
+      register({
+        name,
+        email,
+        password
+      });
     }
   };
   return (
@@ -63,11 +77,23 @@ const Register = () => {
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor='name'>Name</label>
-          <input type='text' name='name' value={name} onChange={onChange} />
+          <input
+            type='text'
+            name='name'
+            value={name}
+            onChange={onChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor='email'>Email Address</label>
-          <input type='email' name='email' value={email} onChange={onChange} />
+          <input
+            type='email'
+            name='email'
+            value={email}
+            onChange={onChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor='password'>Password</label>
