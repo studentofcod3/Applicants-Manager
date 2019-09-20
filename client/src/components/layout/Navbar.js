@@ -18,10 +18,9 @@ const Navbar = ({ title }) => {
   const authLinks = (
     <Fragment>
       <li>
-        <Link to='/'>Home</Link>
-      </li>
-      <li>
-        <Link to='/about'>About</Link>
+        <a onClick={onLogout} href='#!'>
+          <span>Logout</span>
+        </a>
       </li>
     </Fragment>
   );
