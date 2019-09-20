@@ -86,7 +86,6 @@ const Login = props => {
             name='password'
             value={password}
             onChange={onChange}
-            required
           />
         </div>
         <input className='submit-btn' type='submit' value='Login' />

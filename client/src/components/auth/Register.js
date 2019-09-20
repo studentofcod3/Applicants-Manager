@@ -44,7 +44,7 @@ const Register = props => {
       props.history.push("/");
     }
 
-    if (error === "User already exists") {
+    if (error === "This email is already registered") {
       setAlert(error, "danger");
       clearErrors();
     }
@@ -83,23 +83,11 @@ const Register = props => {
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            name='name'
-            value={name}
-            onChange={onChange}
-            required
-          />
+          <input type='text' name='name' value={name} onChange={onChange} />
         </div>
         <div>
           <label htmlFor='email'>Email Address</label>
-          <input
-            type='email'
-            name='email'
-            value={email}
-            onChange={onChange}
-            required
-          />
+          <input type='email' name='email' value={email} onChange={onChange} />
         </div>
         <div>
           <label htmlFor='password'>Password</label>
