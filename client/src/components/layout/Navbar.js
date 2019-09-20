@@ -1,9 +1,42 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+
+import AuthContext from "../../context/auth/authContext";
+
 import styled from "styled-components";
 
 const Navbar = ({ title }) => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated, logout, user } = authContext;
+
+  const onLogout = () => {
+    logout();
+  };
+
+  const authLinks = (
+    <Fragment>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
+        <Link to='/about'>About</Link>
+      </li>
+    </Fragment>
+  );
+
+  const guestLinks = (
+    <Fragment>
+      <li>
+        <Link to='/register'>Register</Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
+    </Fragment>
+  );
+
   const Nav = styled.div`
     display: flex;
     justify-content: space-between;
@@ -28,20 +61,7 @@ const Navbar = ({ title }) => {
   return (
     <Nav>
       <h1>{title}</h1>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='/register'>Register</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-      </ul>
+      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </Nav>
   );
 };
