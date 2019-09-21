@@ -10,23 +10,50 @@ const Div = styled.div`
   align-items: center;
 
   h1 {
+    color: #fff;
   }
 
   form {
+    width: 50%;
+
     div {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+
       label {
+        color: white;
+        margin-bottom: 0.5rem;
       }
 
       input {
+        padding: 0.3rem;
+        border-radius: 7px;
+        opacity: 0.9;
       }
     }
 
     .submit-btn {
       width: 100%;
-      display: block;
+      background: #fff;
+      border-radius: 5px;
+      padding: 0.3rem 0.2rem;
+      font-weight: 300;
+      font-size: 1.15rem;
+      opacity: 0.85;
+    }
+  }
+
+  @media (max-width: 768px) {
+    form {
+      width: 80%;
+
+      div {
+        input {
+          padding: 0.5rem 0.3rem;
+        }
+      }
     }
   }
 `;

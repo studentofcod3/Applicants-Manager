@@ -7,10 +7,16 @@ const Div = styled.div`
   .alert {
     margin: 1rem 2rem;
     padding: 0.5rem 0.2rem;
+    color: #fff;
+
+    i {
+      margin: 0.2rem;
+    }
   }
 
   .alert-danger {
-    border: solid 2px red;
+    border: solid 1px #000;
+    background: #b76a69;
   }
 `;
 

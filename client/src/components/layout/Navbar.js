@@ -7,7 +7,7 @@ import ContactContext from "../../context/contact/contactContext";
 
 import styled from "styled-components";
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
   const authContext = useContext(AuthContext);
   const contactContext = useContext(ContactContext);
 
@@ -21,7 +21,9 @@ const Navbar = ({ title }) => {
 
   const authLinks = (
     <Fragment>
-      <li>Hello</li>
+      <li className='name'>
+        Hello <span>{user && user.name}</span>
+      </li>
       <li>
         <a onClick={onLogout} href='#!'>
           <span>Logout</span>
@@ -44,9 +46,13 @@ const Navbar = ({ title }) => {
   const Nav = styled.div`
     display: flex;
     justify-content: space-between;
-    background: #202020;
+    background: #cf9c9b;
     padding: 0 2rem;
+    opacity: 0.9;
+    border: solid 1px #fff;
+
     h1 {
+      font-family: "Big Shoulders Display", cursive;
     }
 
     ul {
@@ -54,17 +60,37 @@ const Navbar = ({ title }) => {
       align-items: center;
       li {
         list-style: none;
-        margin-left: 1rem;
         a {
+          margin-left: 1rem;
           text-decoration: none;
-          color: #ddd;
+          color: #000;
+          border-bottom: solid 1px black;
+          font-weight: bold;
+        }
+      }
+
+      .name {
+        padding: 0 2rem;
+        span {
+          display: block;
+          font-weight: bold;
+        }
+      }
+    }
+
+    @media (max-width: 350px) {
+      padding: 0 0.7rem;
+
+      ul {
+        .name {
+          padding: 0;
         }
       }
     }
   `;
   return (
     <Nav>
-      <h1>{title}</h1>
+      <h1>Contact Manager</h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </Nav>
   );

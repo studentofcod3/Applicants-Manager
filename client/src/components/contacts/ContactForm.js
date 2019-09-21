@@ -3,24 +3,33 @@ import ContactContext from "../../context/contact/contactContext";
 import styled from "styled-components";
 
 const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
+
   input {
     width: 100%;
-    height: 1.2rem;
+    height: 1.4rem;
     margin-bottom: 0.5rem;
-    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
   }
 
   h5 {
   }
 
-  .container {
+  .type-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     margin-bottom: 1rem;
+    width: 100%;
 
-    .type-container {
+    .type-mini-container {
       input {
         margin: 0;
       }
@@ -31,20 +40,80 @@ const Form = styled.form`
   }
 
   .btn-container {
+    width: 100%;
     .btn {
       padding: 1rem 0;
       line-height: 0;
 
       :hover {
         cursor: pointer;
-        background: yellow;
       }
     }
 
     .submit-btn {
+      padding: 1rem 0;
+      background: #b76a69;
+      color: #fff;
+      font-size: 1.15rem;
+      font-family: "Big Shoulders Display", cursive;
+
+      :hover {
+        cursor: pointer;
+      }
     }
 
     .clear-btn {
+      width: 100%;
+
+      :hover {
+        background: red;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+    }
+    input {
+      width: 100%;
+      height: 1.4rem;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+    }
+
+    h5 {
+    }
+
+    .type-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 1rem;
+      width: 100%;
+
+      .type-mini-container {
+        input {
+          margin: 0;
+        }
+
+        span {
+        }
+      }
+    }
+
+    .btn-container {
+      .btn {
+      }
+
+      .submit-btn {
+      }
+
+      .clear-btn {
+      }
     }
   }
 `;
@@ -119,8 +188,8 @@ const ContactForm = () => {
         onChange={onChange}
       />
       <h5>Contact Type</h5>
-      <div className='container'>
-        <div className='type-container'>
+      <div className='type-container'>
+        <div className='type-mini-container'>
           <input
             type='radio'
             name='type'
@@ -130,7 +199,7 @@ const ContactForm = () => {
           />
           <span>Personal</span>
         </div>
-        <div className='type-container'>
+        <div className='type-mini-container'>
           <input
             type='radio'
             name='type'

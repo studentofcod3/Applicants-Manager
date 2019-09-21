@@ -15,9 +15,27 @@ import AlertState from "./context/alert/AlertState";
 
 import setAuthToken from "./utils/setAuthToken";
 
+import styled from "styled-components";
+import "./App.scss";
+
+import water from "./img/water.jpg";
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
+
+const Container = styled.div`
+  height: 100%;
+
+  .container {
+    background: url(${water});
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100vh;
+    width: auto;
+    padding: 2rem 0 8rem 0;
+  }
+`;
 
 function App() {
   return (
@@ -27,15 +45,17 @@ function App() {
           <Router>
             <Fragment>
               <Navbar />
-              <div className='container'>
-                <Alerts />
-                <Switch>
-                  <PrivateRoute exact path='/' component={Home} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
-                </Switch>
-              </div>
+              <Container>
+                <div className='container'>
+                  <Alerts />
+                  <Switch>
+                    <PrivateRoute exact path='/' component={Home} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/login' component={Login} />
+                  </Switch>
+                </div>
+              </Container>
             </Fragment>
           </Router>
         </AlertState>

@@ -2,6 +2,17 @@ import React, { Fragment, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import ContactItem from "./ContactItem";
 import Spinner from "../layout/Spinner";
+import styled from "styled-components";
+
+const ContactComponent = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
@@ -18,7 +29,7 @@ const Contacts = () => {
   }
 
   return (
-    <Fragment>
+    <ContactComponent>
       {contacts !== null && !loading ? (
         <Fragment>
           {filtered !== null
@@ -32,7 +43,7 @@ const Contacts = () => {
       ) : (
         <Spinner />
       )}
-    </Fragment>
+    </ContactComponent>
   );
 };
 
