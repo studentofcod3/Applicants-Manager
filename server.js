@@ -20,7 +20,6 @@ app.use("/api/auth", auth);
 app.use("/api/contacts", contacts);
 
 // Serve static assets (react) in production
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 

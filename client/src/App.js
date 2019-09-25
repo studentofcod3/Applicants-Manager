@@ -24,19 +24,6 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const Container = styled.div`
-  height: 100%;
-
-  .container {
-    background: url(${water});
-    background-position: bottom;
-    background-size: cover;
-    min-height: 100vh;
-    width: auto;
-    padding: 2rem 0 8rem 0;
-  }
-`;
-
 function App() {
   return (
     <AuthState>
@@ -44,18 +31,16 @@ function App() {
         <AlertState>
           <Router>
             <Fragment>
-              <Navbar />
-              <Container>
-                <div className='container'>
-                  <Alerts />
-                  <Switch>
-                    <PrivateRoute exact path='/' component={Home} />
-                    <Route exact path='/about' component={About} />
-                    <Route exact path='/register' component={Register} />
-                    <Route exact path='/login' component={Login} />
-                  </Switch>
-                </div>
-              </Container>
+              <div className='container'>
+                <Navbar />
+                <Alerts />
+                <Switch>
+                  <PrivateRoute exact path='/' component={Home} />
+                  <Route exact path='/about' component={About} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                </Switch>
+              </div>
             </Fragment>
           </Router>
         </AlertState>

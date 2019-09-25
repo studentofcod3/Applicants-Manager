@@ -1,65 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
-import styled from "styled-components";
-
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  h1 {
-    color: #fff;
-  }
-
-  form {
-    width: 70%;
-
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-
-      label {
-        color: white;
-        margin-bottom: 0.5rem;
-      }
-
-      input {
-        padding: 0.5rem 0.3rem;
-        border-radius: 7px;
-        opacity: 0.9;
-      }
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: #fff;
-      border-radius: 5px;
-      padding: 0.3rem 0.2rem;
-      font-weight: 300;
-      font-size: 1.15rem;
-      opacity: 0.85;
-    }
-  }
-
-  @media (max-width: 767px) {
-    form {
-      width: 80%;
-
-      div {
-        input {
-          padding: 0.5rem 0.3rem;
-        }
-      }
-
-      .submit-btn {
-      }
-    }
-  }
-`;
 
 const Login = props => {
   const alertContext = useContext(AlertContext);
@@ -103,7 +44,7 @@ const Login = props => {
     }
   };
   return (
-    <Div>
+    <div id='login'>
       <h1>Account Login</h1>
       <form onSubmit={onSubmit}>
         <div>
@@ -121,7 +62,7 @@ const Login = props => {
         </div>
         <input className='submit-btn' type='submit' value='Login' />
       </form>
-    </Div>
+    </div>
   );
 };
 

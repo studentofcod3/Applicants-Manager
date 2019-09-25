@@ -43,56 +43,11 @@ const Navbar = () => {
     </Fragment>
   );
 
-  const Nav = styled.div`
-    display: flex;
-    justify-content: space-between;
-    background: #cf9c9b;
-    padding: 0 2rem;
-    opacity: 0.9;
-    border: solid 1px #fff;
-
-    h1 {
-      font-family: "Big Shoulders Display", cursive;
-    }
-
-    ul {
-      display: flex;
-      align-items: center;
-      li {
-        list-style: none;
-        a {
-          margin-left: 1rem;
-          text-decoration: none;
-          color: #000;
-          border-bottom: solid 1px black;
-          font-weight: bold;
-        }
-      }
-
-      .name {
-        padding: 0 2rem;
-        span {
-          display: block;
-          font-weight: bold;
-        }
-      }
-    }
-
-    @media (max-width: 350px) {
-      padding: 0 0.7rem;
-
-      ul {
-        .name {
-          padding: 0;
-        }
-      }
-    }
-  `;
   return (
-    <Nav>
+    <div id='nav'>
       <h1>Contact Manager</h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
-    </Nav>
+    </div>
   );
 };
 

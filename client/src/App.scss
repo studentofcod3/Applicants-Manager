@@ -1,1 +1,272 @@
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+
+.container{
+  height: 100%;
+}
+
+#nav{
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient( to right, #740908, #e02926 );
+  padding: 0 2rem;
+  opacity: 0.9;
+  border-bottom: solid 1px rgb(73, 17, 17);
+  animation: navslide 2s forwards;
+  position: relative;
+  top: -10rem;
+  
+
+  @keyframes navslide {
+    0%{
+      transform: translateY(0);
+      opacity: 0;
+    }
+
+    100%{
+      transform: translateY(10rem);
+      opacity: 0.9;
+
+    }
+  }
+
+  h1 {
+    font-family: "Big Shoulders Display", cursive;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      list-style: none;
+      a {
+        margin-left: 1rem;
+        text-decoration: none;
+        color: #000;
+        border-bottom: solid 1px black;
+        font-weight: bold;
+      }
+    }
+
+    .name {
+      padding: 0 2rem;
+      span {
+        display: block;
+        font-weight: bold;
+      }
+    }
+
+
+  }
+
+  @media (max-width: 350px) {
+    padding: 0 0.7rem;
+
+    ul {
+      .name {
+        padding: 0;
+      }
+    }
+  }
+}
+
+// LOGIN
+#login, #register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  animation: fadein 3s forwards;
+  opacity: 0;
+  
+  h1 {
+    color: #1d0606;
+    margin: 3rem 0;
+  }
+
+  form {
+    width: 70%;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+
+      label {
+        color: #1d0606;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        padding: 0.5rem 0.3rem;
+        border-radius: 7px;
+        opacity: 0.9;
+      }
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.3rem 0.2rem;
+      font-weight: 300;
+      font-size: 1.15rem;
+      opacity: 0.85;
+      background: linear-gradient(to bottom right, #bd3b39 , #793736) ;
+      border: none;
+      border-radius: 0;
+      box-shadow: -1px 1px 1px #1d0606;
+      color: #f8f1e8;
+    }
+  }
+
+  @media (max-width: 767px) {
+    form {
+      width: 80%;
+
+      div {
+        input {
+          padding: 0.5rem 0.3rem;
+          margin: 0.5rem 0;
+        }
+      }
+
+      .submit-btn {
+        background: linear-gradient(to bottom right, #bd3b39 , #793736) ;
+        border: none;
+        border-radius: 0;
+        box-shadow: -1px 1px 1px #1d0606;
+      }
+    }
+  }
+}
+
+#register{
+  h1 {
+    margin: 3rem 0 1rem;
+  }
+
+  form {
+    div {
+      margin-bottom: 1rem;
+    }
+
+    .submit-btn {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Contact Item
+#contactItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  margin: 2rem;
+  box-shadow: -2px 2px 2px #2e2929;
+  background: #fff;
+  box-sizing: border-box;
+  width: 50%;
+
+  h3 {
+    box-sizing: border-box;
+    margin: 0.2rem 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .name {
+      margin-right: auto;
+    }
+
+    .badge {
+      font-size: 1rem;
+      padding: 0.4rem 0.5rem;
+      margin: 0 1rem;
+      margin-right: 0;
+      border-radius: 5px;
+    }
+
+    .badge-success {
+      background: #72b358;
+    }
+
+    .badge-normal {
+      background: #5069ad;
+      color: #fff;
+    }
+  }
+
+  .list {
+    width: 100%;
+    li {
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      i {
+        margin-right: 1rem;
+      }
+
+      span {
+      }
+    }
+  }
+
+  p {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+
+    button {
+      flex: 1 1 0;
+      margin: 0.2rem;
+      border: none;
+      padding: 0.8rem 0;
+      opacity: 0.85;
+      transition: opacity 0.2s ease-in-out;
+      color: #fff;
+      font-family: "Big Shoulders Display", cursive;
+      font-size: 1.3rem;
+      letter-spacing: 0.2rem;
+
+      :hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+
+      i{
+        
+      }
+    }
+    .edit-btn {
+      background: linear-gradient(to bottom, #f1d1d1, #926f6e );
+    }
+
+    .delete-btn {
+      background: linear-gradient(to bottom, #ddc6c6, #880806 );
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}
+
+// Fade in animation
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
