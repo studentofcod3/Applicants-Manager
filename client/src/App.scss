@@ -156,17 +156,27 @@
   }
 }
 
+// Contact component
+#Contact{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+}
+
 // Contact Item
 #contactItem{
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 1;
-  margin: 2rem;
+  margin: 2rem 1rem;
   box-shadow: -2px 2px 2px #2e2929;
   background: #fff;
   box-sizing: border-box;
-  width: 50%;
 
   h3 {
     box-sizing: border-box;
@@ -255,8 +265,40 @@
     }
   }
 
-  @media (max-width: 768px) {
-    width: 80%;
+  @media (max-width: 350px) {
+    margin: 1rem 0.2rem;
+
+    h3 {
+      margin: 0.2rem 0.5rem;
+      padding: 0.7rem;
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.4rem;
+      margin: 0 0.4rem;
+    }
+  }
+
+  .list {
+    margin: 0.2rem 0;
+    padding: 0.2rem 0;
+    li {
+      margin: 0.2rem;
+      i {
+        margin-right: 0.2rem;
+      }
+    }
+  }
+
+  p {    
+
+    button {
+      margin: 0.2rem;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+    }
+    
+  }
   }
 }
 
