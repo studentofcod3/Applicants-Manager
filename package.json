@@ -21,6 +21,8 @@
     "express-validator": "^6.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.0",
+    "react-scroll": "^1.7.14",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {

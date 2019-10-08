@@ -1,122 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import styled from "styled-components";
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h2 {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  input {
-    width: 100%;
-    height: 1.4rem;
-    margin-bottom: 0.5rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  h5 {
-  }
-
-  .type-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 1rem;
-    width: 100%;
-
-    .type-mini-container {
-      input {
-        margin: 0;
-      }
-
-      span {
-      }
-    }
-  }
-
-  .btn-container {
-    width: 100%;
-    .btn {
-      padding: 1rem 0;
-      line-height: 0;
-
-      :hover {
-        cursor: pointer;
-      }
-    }
-
-    .submit-btn {
-      padding: 1rem 0;
-      background: #b76a69;
-      color: #fff;
-      font-size: 1.15rem;
-      font-family: "Big Shoulders Display", cursive;
-
-      :hover {
-        cursor: pointer;
-      }
-    }
-
-    .clear-btn {
-      width: 100%;
-
-      :hover {
-        background: red;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-    }
-    input {
-      width: 100%;
-      height: 1.4rem;
-      margin-bottom: 0.5rem;
-      border-radius: 4px;
-    }
-
-    h5 {
-    }
-
-    .type-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin-bottom: 1rem;
-      width: 100%;
-
-      .type-mini-container {
-        input {
-          margin: 0;
-        }
-
-        span {
-        }
-      }
-    }
-
-    .btn-container {
-      .btn {
-      }
-
-      .submit-btn {
-      }
-
-      .clear-btn {
-      }
-    }
-  }
-`;
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
@@ -164,7 +47,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <form id='contactForm' onSubmit={onSubmit}>
       <h2>{current ? "Edit Contact" : "Add Contact"}</h2>
       <input
         type='text'
@@ -225,7 +108,7 @@ const ContactForm = () => {
           </button>
         </div>
       )}
-    </Form>
+    </form>
   );
 };
 

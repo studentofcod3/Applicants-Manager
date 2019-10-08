@@ -2,7 +2,6 @@ import React, { Fragment, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import ContactItem from "./ContactItem";
 import Spinner from "../layout/Spinner";
-import styled from "styled-components";
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);

@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
 import axios from "axios";
+import { animateScroll as scroll } from "react-scroll";
+import smoothscroll from "smoothscroll-polyfill";
 
 import ContactContext from "./contactContext";
 import contactReducer from "./contactReducer";
@@ -118,6 +120,10 @@ const ContactState = props => {
   // Set Current Contact
   const setCurrent = contact => {
     dispatch({ type: SET_CURRENT, payload: contact });
+
+    scroll.scrollTo(0);
+
+    smoothscroll.polyfill();
   };
   // Clear Current Contact
   const clearCurrent = () => {

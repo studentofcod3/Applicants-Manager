@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 .container{
   height: 100%;
 }
 
+#root{
+  font-family: 'Lato', sans-serif;
+}
+
 #nav{
   display: flex;
   justify-content: space-between;
-  background: linear-gradient( to right, #740908, #e02926 );
+  background: #6656a1;
   padding: 0 2rem;
-  opacity: 0.9;
-  border-bottom: solid 1px rgb(73, 17, 17);
   animation: navslide 2s forwards;
   position: relative;
   top: -10rem;
@@ -30,7 +32,6 @@
   }
 
   h1 {
-    font-family: "Big Shoulders Display", cursive;
   }
 
   ul {
@@ -42,8 +43,13 @@
         margin-left: 1rem;
         text-decoration: none;
         color: #000;
-        border-bottom: solid 1px black;
         font-weight: bold;
+
+        &:hover{
+          color: #ffffff;
+
+          transition: color 1s ease-in;
+        }
       }
     }
 
@@ -75,7 +81,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   animation: fadein 3s forwards;
   opacity: 0;
   
@@ -156,14 +161,213 @@
   }
 }
 
+// Home
+#Home{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  margin: auto 0;
+
+  .contact-form {
+    margin: 0 0 2rem 0;
+    width: 90%;
+    opacity: 0.9;
+    background: #fff;
+    box-shadow: -2px 2px 4px #c5c1c1;
+  }
+
+  .contacts-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+
+    .contacts {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .contacts-area,
+  .contact-form {
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    align-items: space-around;
+    padding: 1rem;
+    margin: 0;
+
+    .contact-form {
+    }
+
+    .contacts-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+    }
+
+    .contacts-area,
+    .contact-form {
+      padding: 1rem;
+    }
+  }
+}
+
 // Contact component
 #Contact{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
 
+  }
+}
+
+// Contact form
+#contactForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    width: 100%;
+    height: 1.4rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.4rem;
+    border: solid 1px #807878;
+  }
+
+  h5 {
+  }
+
+  .type-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    .type-mini-container {
+      input {
+        margin: 0;
+      }
+
+      span {
+      }
+    }
+  }
+
+  .btn-container {
+    width: 100%;
+    .btn {
+      padding: 1rem 0;
+      line-height: 0;
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    .submit-btn {
+      padding: 1rem 0;
+      background: #1a1717;
+      color: #fff;
+      font-size: 1.15rem;
+
+      &:hover {
+        cursor: pointer;
+        background: #383232;
+      }
+    }
+
+    .clear-btn {
+      width: 100%;
+      border: none;
+
+      &:hover {
+        background: rgb(224, 212, 212);
+        cursor: pointer;
+      }
+
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+    }
+    input {
+      width: 100%;
+      height: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h5 {
+    }
+
+    .type-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 1rem;
+      width: 100%;
+
+      .type-mini-container {
+        input {
+          margin: 0;
+        }
+
+        span {
+        }
+      }
+    }
+
+    .btn-container {
+      .btn {
+      }
+
+      .submit-btn {
+      }
+
+      .clear-btn {
+      }
+    }
+  }
+}
+
+// Contact Filter
+#contactFilter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: rgb(116, 110, 110);
+  padding: 0.3rem;
+
+  .input {
+    color: #000;
+    font-size: 1.15rem;
+    display: block;
+    padding: 0.5rem;
+    border: none;
+
+    &:focus{
+      outline: none;
+    }
   }
 }
 
@@ -174,9 +378,10 @@
   align-items: center;
   z-index: 1;
   margin: 2rem 1rem;
-  box-shadow: -2px 2px 2px #2e2929;
-  background: #fff;
+  box-shadow: -1px 1px 2px #584f4f;
+  background: rgb(230, 224, 224);
   box-sizing: border-box;
+  border-radius: 5px;
 
   h3 {
     box-sizing: border-box;
@@ -191,20 +396,19 @@
     }
 
     .badge {
-      font-size: 1rem;
+      font-size: 0.8rem;
       padding: 0.4rem 0.5rem;
       margin: 0 1rem;
       margin-right: 0;
-      border-radius: 5px;
+      text-decoration: underline;
     }
 
     .badge-success {
-      background: #72b358;
+      color: #91c97b;
     }
 
     .badge-normal {
-      background: #5069ad;
-      color: #fff;
+      color: #697caf;
     }
   }
 
@@ -233,35 +437,43 @@
     width: 100%;
     margin-bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
     button {
-      flex: 1 1 0;
-      margin: 0.2rem;
+      margin: 0.5rem 0.7rem;
       border: none;
-      padding: 0.8rem 0;
+      padding: 0.6rem;
       opacity: 0.85;
       transition: opacity 0.2s ease-in-out;
-      color: #fff;
-      font-family: "Big Shoulders Display", cursive;
-      font-size: 1.3rem;
-      letter-spacing: 0.2rem;
+      color: #aaa;
+      font-size: 0.8rem;
+      background: #5f5c5c;
+      border-radius: 50%;
 
-      :hover {
+      &:hover {
         opacity: 1;
         cursor: pointer;
       }
 
+      &:focus{
+        outline: none;
+      }
+
       i{
-        
+        color: #bbb;
       }
     }
     .edit-btn {
-      background: linear-gradient(to bottom, #f1d1d1, #926f6e );
+      &:hover{
+
+      }
     }
 
     .delete-btn {
-      background: linear-gradient(to bottom, #ddc6c6, #880806 );
+      transition: all 1s ease;
+      &:hover{
+        background: rgb(216, 48, 48);
+      }
     }
   }
 

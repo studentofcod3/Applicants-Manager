@@ -58,10 +58,10 @@ const ContactItem = ({ contact }) => {
       </ul>
       <p>
         <button className='edit-btn' onClick={() => setCurrent(contact)}>
-          <i className='far fa-edit'></i> EDIT
+          <i className='far fa-edit'></i>
         </button>
         <button className='delete-btn' onClick={onDelete}>
-          <i className='far fa-trash-alt'></i> DELETE
+          <i className='far fa-trash-alt'></i>
         </button>
       </p>
     </div>
